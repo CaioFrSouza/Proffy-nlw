@@ -2,6 +2,13 @@
   "name": "Proffy-nlw",
   "version": "1.0.0",
   "main": "index.js",
+  "workspaces":{
+    "packages":[
+      "server/*",
+      "web/*"
+    ]
+  }
+  "private":true,
   "author": "CaioFrSouza <caiodesouza12@gmail.com>",
   "license": "MIT"
 }

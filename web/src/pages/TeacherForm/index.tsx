@@ -1,7 +1,12 @@
 import React from 'react'
+import PageHeader from '../../components/pageHeader'
+
+import './styles.css'
 
 const TeacherForm = () => (
-    <h1>Teacher Form</h1>
+    <div id="page-teacher-form" className="container">
+        <PageHeader title="Que incrivel que você quer dar aulas"/>
+</div>
 )
 
 export default TeacherForm
