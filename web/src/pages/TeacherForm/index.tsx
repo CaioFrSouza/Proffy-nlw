@@ -1,5 +1,6 @@
 import React, { useState, FormEvent } from 'react'
 import PageHeader from '../../components/pageHeader'
+import {useHistory} from 'react-router-dom'
 
 import './styles.css'
 import Input from '../../components/input'
@@ -7,9 +8,11 @@ import Input from '../../components/input'
 import warningIcon from '../../assets/images/icons/warning.svg'
 import TextArea from '../../components/textArea'
 import Select from '../../components/selected'
+import api from '../../services/api'
 
 const TeacherForm = () => {
-    
+    const history = useHistory()
+
     const [name,setName] = useState('')
     const [avatar,setAvatar] = useState('')
     const [wpp,setWpp] = useState('')
@@ -41,14 +44,21 @@ const TeacherForm = () => {
 
     function handleCreateClass (e:FormEvent) {
         e.preventDefault()
-        console.log(e)
-        console.log({
+
+        api.post('classes' ,{
             name,
             avatar,
             bio,
             wpp,
-            cost,
-            subject
+            cost:Number(cost),
+            subject,
+            schedule
+        }).then((e) => {
+            alert('Cadastrado com sucesso')
+            history.push('/')
+        })
+        .catch(err => {
+            console.log(err)
         })
     }
 
