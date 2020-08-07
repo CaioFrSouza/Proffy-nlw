@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import {Link} from 'react-router-dom'
 
 import logoImg from '../../assets/images/logo.svg' 
@@ -8,9 +8,20 @@ import studyIcon from '../../assets/images/icons/study.svg'
 import giveClassIcon from '../../assets/images/icons/give-classes.svg' 
 import purpleHeartIcon from '../../assets/images/icons/purple-heart.svg' 
 
+import api from '../../services/api';
+
 import './styles.css'
 
-const Lading = () => (
+const Lading = () => {
+    
+    const [totalConnections,setTotalConnections] = useState(0)
+
+    useEffect(() =>{
+        api.get('connections').then((res) => 
+        setTotalConnections(res.data.total))
+    },[])
+
+    return(
     <div id='page-landing'>
         <div id="page-loading-container" className="container">
             <div className="logo-container">
@@ -34,10 +45,10 @@ const Lading = () => (
                 </Link>
             </div>
             <span className="total-connections">
-                Total de 200 conexoões já realizadas
+                Total de {totalConnections} conexoões já realizadas
                 <img src={purpleHeartIcon} alt="Coração roxo"/>
             </span>
         </div>
     </div>
-)
+)}
 export default Lading

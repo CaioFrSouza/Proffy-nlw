@@ -7,7 +7,7 @@
       "server/*",
       "web/*"
     ]
-  }
+  },
   "private":true,
   "author": "CaioFrSouza <caiodesouza12@gmail.com>",
   "license": "MIT"
