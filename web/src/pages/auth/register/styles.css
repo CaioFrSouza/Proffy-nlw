@@ -1,0 +1,169 @@
+.registerPage {
+    background-color:var(--color-background);
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.header{
+    background-color: var(--color-primary);
+    width: 100vw;
+    height: 35%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 4rem;
+    background-image: url('../../../assets/images/success-background.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position-x: center;
+    background-position-y: center;
+}
+
+.header img {
+    width: 70%;
+}
+
+.header p {
+    max-width: 150px;
+    color:var(--color-text-in-primary);
+    font: 700  1.6rem Archivo ;
+} 
+
+ .registerPage main {
+     width: 100%;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+ }
+ .registerPage main fieldset{
+    width: 90%;
+    border: 0;
+}
+
+.registerPage main fieldset legend {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.registerPage main fieldset legend p{
+    font: 600 3.2rem Poppins;
+    margin-bottom: 1.6rem;
+    color:var(--color-text-title)
+}
+
+.registerPage main fieldset legend a {
+    color: var(--color-primary);
+    font: 300 1.6rem Poppins ;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.registerPage main fieldset legend a:hover {
+    color:var(--color-primary-dark)
+}
+
+.registerPage main fieldset button.submit{
+    width: 100%;
+    height: 5.6rem;
+    border: none;
+    margin-top: 1rem;
+    background-color: var(--color-secundary);
+    border-radius: 0.8rem;
+    font: 600 1.6rem Archivo;
+    color: var(--color-button-text);
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+#disable {
+    background-color: var(--disable-color);
+}
+
+.registerPage main fieldset button.submit:hover {
+    background-color: var(--color-secundary-dark);
+}
+
+.input-flext-row{
+    margin: 1rem 0 ;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.input-flext-row input {
+    height: 1.6rem;
+    width: 1.6rem;
+    margin-right: 1.6rem;
+    border: none;
+    border-radius: 500px;
+    
+}
+
+.input-flext-row label {
+    font: 300 1.2rem Poppins;
+    color: var( --color-text-complement );
+}
+
+.registerPage main fieldset .group{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    
+}
+
+#Eye{
+    position: absolute;
+    width: 3rem;
+    right: 14px;
+    top: 50%;
+    background: none;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    outline: none;
+}
+
+#Eye svg{
+    width: 100%;
+    height: 100%;
+}
+
+#Eye.activity {
+    color: var(--color-primary);
+}
+
+.registerPage main fieldset .group a {
+    text-decoration: none;
+    color: var( --color-text-complement );
+    font: 300 1.2rem Poppins;
+}
+
+@media (min-width:700px) {
+    .registerPage {
+        flex-direction: row-reverse ;
+        overflow: hidden;
+    }
+    .header{
+        height: 100vh;
+        margin: 0;
+    }
+    .header p {
+        max-width: 250px;
+        font: 700 2.6rem Archivo;
+    }
+    .registerPage main fieldset{
+        width: 50%;
+    }
+}
