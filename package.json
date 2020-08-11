@@ -9,6 +9,8 @@
       "mobile/*"
     ]
   },
+  "scripts": {
+    "start": ""},
   "private":true,
   "author": "CaioFrSouza <caiodesouza12@gmail.com>",
   "license": "MIT"

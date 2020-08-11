@@ -1,4 +1,4 @@
-import React, { useState, useEffect, ButtonHTMLAttributes } from 'react'
+import React, { useState, useEffect, ButtonHTMLAttributes, FormEvent } from 'react'
 import { Link } from 'react-router-dom';
 import {FiEyeOff,FiEye} from 'react-icons/fi'
 
@@ -7,6 +7,7 @@ import Input from '../../../components/input';
 import Logo from '../../../assets/images/logo.svg'
 
 import './styles.css'
+import api from '../../../services/api';
 
 const Login = () => {
     const [email,setEmail] = useState('');
@@ -17,6 +18,18 @@ const Login = () => {
     function handleToogleVisiblePassword (e: React.MouseEvent<HTMLButtonElement, MouseEvent>)  {
         e.preventDefault();
         return setVisiblePassword(!visiblePassword)
+    }
+
+    function submitLoginForm (e:FormEvent) {
+        e.preventDefault()
+        api.post('/auth/login',{
+            email,
+            password
+        }).then(res => {
+            const {token} = res.data
+            console.log(token)
+            sessionStorage.setItem('@auth/token',token)
+        })
     }
 
     useEffect(() => {
@@ -37,7 +50,7 @@ const Login = () => {
                     <p>Fazer Login</p>
                     <Link to={'/register'} > Criar uma conta </Link>
                     </legend>
-                <form action="">
+                <form onSubmit={submitLoginForm}>
                 <Input 
                     label={'Email'} 
                     name={'email'}
