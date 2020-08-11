@@ -7,13 +7,14 @@ export async function up(Knex: Knex) {
         table.string('avatar').notNullable();
         table.string('wpp').notNullable();
         table.string('bio').notNullable();
+        // table.number('cost').notNullable();
 
-        table.integer('user_id')
-        .notNullable()
-        .references('id')
-        .inTable('auth')
-        .onUpdate('CASCADE')
-        .onDelete('CASCADE')
+        // table.integer('user_id')
+        // .notNullable()
+        // .references('id')
+        // .inTable('auth')
+        // .onUpdate('CASCADE')
+        // .onDelete('CASCADE')
     });
 }
 
