@@ -1,4 +1,3 @@
-import Knes from 'knex'
 import Knex from 'knex';
 
 export async function up(Knex: Knex) {
@@ -8,6 +7,13 @@ export async function up(Knex: Knex) {
         table.string('avatar').notNullable();
         table.string('wpp').notNullable();
         table.string('bio').notNullable();
+
+        table.integer('user_id')
+        .notNullable()
+        .references('id')
+        .inTable('auth')
+        .onUpdate('CASCADE')
+        .onDelete('CASCADE')
     });
 }
 
